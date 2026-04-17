@@ -1,4 +1,4 @@
-create view vw_taxa_cambio as
+CREATE VIEW vw_taxa_cambio as
 SELECT
 	CONVERT(VARCHAR(10), FactExchangeRate.DateKey,103) AS 'Data',
 	DimCurrency.CurrencyName AS 'Moeda',
