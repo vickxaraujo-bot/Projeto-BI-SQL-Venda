@@ -61,11 +61,6 @@ O desenvolvimento foi realizado desde o tratamento dos dados até a construção
 
 ---
 
-## 📸 Dashboard
-
-(Insira aqui a imagem do seu dashboard)
-
----
 
 ## 🚀 Sobre mim
 
