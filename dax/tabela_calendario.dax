@@ -1,0 +1,25 @@
+dCalendario = 
+VAR MinData =
+    MIN ('vwFVendas'[Data_venda])
+VAR MaxData =
+    MAX ('vwFVendas'[Data_venda])
+RETURN
+ADDCOLUMNS(
+    CALENDAR(MinData, MaxData),
+
+    "Ano", YEAR([Date]),
+    "MesNumero", MONTH([Date]),
+    "MesNome", FORMAT([Date], "MMMM"),
+    "AnoMes", FORMAT([Date], "YYYY-MM"),
+
+    --INICIO DO MES (PRIMEIRO DIA DO MES)
+    "InicioMes", EOMONTH ( [Date], -1 ) + 1,
+    "Dia", DAY([Date]),
+    "DiaDaSemanaNumero", WEEKDAY([Date],2),
+    "DiaDaSemanaNome", FORMAT([Date], "dddd"),
+    "Trimestre", QUARTER([Date]),
+    "AnoTrimestre", "T" & QUARTER([Date]) & " - " & YEAR([Date]),
+    "SemanaAno", WEEKNUM([Date],2),
+    "ÉFinalDeSemana", IF(WEEKDAY([Date],2) > 5, "Sim", "Não"),
+    "DiaDoAno", FORMAT([Date], "DDD")
+)
